@@ -1,0 +1,20 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Database connection (local credentials)
+back/conexion.php
+
+# Uploaded files
+uploads/*
+!uploads/.gitkeep
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/

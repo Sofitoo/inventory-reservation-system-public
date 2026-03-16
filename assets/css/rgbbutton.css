@@ -1,0 +1,35 @@
+.glow {
+    animation: rgbGlow 3s infinite alternate;
+}
+
+@keyframes rgbGlow {
+    0% { text-shadow: 0 0 5px #ff0000; }
+    25% { text-shadow: 0 0 5px #00ff00; }
+    50% { text-shadow: 0 0 5px #0000ff; }
+    75% { text-shadow: 0 0 5px #ff00ff; }
+    100% { text-shadow: 0 0 5px #00ffff; }
+}
+
+@keyframes latido {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.08);
+  }
+  40% {
+    transform: scale(0.95);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.latido {
+  animation: latido 1s infinite;
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+}
+
