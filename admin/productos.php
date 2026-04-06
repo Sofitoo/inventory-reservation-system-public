@@ -248,17 +248,25 @@ $productos = $stmt->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/ui-animations.js" defer></script>
     <link rel="icon" type="image/png" href="img/admin.png">
     <link rel="shortcut icon" href="img/admin.png">
 </head>
 
-<body class="bg-gray-100 min-h-screen p-6">
+<body class="admin-ui bg-gray-100 min-h-screen p-4 md:p-6">
 
-    <div class="max-w-6xl mx-auto">
+    <div class="admin-shell">
 
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold">Productos</h1>
-            <a href="dashboard.php" class="text-sm text-blue-600 hover:underline">← Volver</a>
+        <div class="admin-topbar flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <div>
+                <p class="text-xs uppercase tracking-[0.2em] text-blue-100">Gestión</p>
+                <h1 class="text-2xl font-bold">Productos</h1>
+            </div>
+            <a href="dashboard.php"
+                class="inline-flex items-center justify-center bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white/20 transition">
+                ← Volver al panel
+            </a>
         </div>
 
         <!-- MODAL PRODUCTO -->
@@ -266,7 +274,7 @@ $productos = $stmt->fetchAll();
 
             <div class="min-h-screen flex items-center justify-center p-4">
 
-                <div class="bg-white w-full max-w-3xl rounded-2xl shadow-xl
+                <div class="admin-panel bg-white w-full max-w-3xl rounded-2xl shadow-xl
                     max-h-[90vh] overflow-y-auto relative p-6">
 
                     <!-- Botón cerrar -->
@@ -387,18 +395,18 @@ $productos = $stmt->fetchAll();
         </div>
 
 
-        <form method="GET" class="mb-6 flex items-center space-x-3">
+        <form method="GET" class="admin-panel p-4 mb-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <input type="text" name="buscar" placeholder="Buscar producto..."
                 value="<?= htmlspecialchars($_GET['buscar'] ?? '') ?>"
                 class="border rounded-xl px-4 py-2 w-full focus:ring-2 focus:ring-blue-500">
-            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition">
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-blue-700 transition">
                 Buscar
             </button>
         </form>
 
-        <div class="bg-white rounded-xl shadow overflow-x-auto">
+        <div class="admin-table-wrap bg-white rounded-xl shadow overflow-x-auto">
 
-            <table class="min-w-full text-sm">
+            <table class="min-w-[860px] w-full text-sm">
                 <thead class="bg-gray-200">
                     <tr>
                         <th class="p-3 text-left">Producto</th>
@@ -482,13 +490,13 @@ $productos = $stmt->fetchAll();
                             </td>
 
                             <!-- Acciones -->
-                            <td class="p-3 space-x-3">
-                                <button class="text-blue-600 hover:underline editarBtn" data-id="<?= $p['id'] ?>">
+                            <td class="p-3 space-x-3 whitespace-nowrap">
+                                <button class="text-blue-600 font-semibold hover:underline editarBtn" data-id="<?= $p['id'] ?>">
                                     Editar
                                 </button>
 
                                 <a href="productos.php?accion=eliminar&id=<?= $p['id'] ?>"
-                                    onclick="return confirm('¿Eliminar producto?')" class="text-red-600 hover:underline">
+                                    onclick="return confirm('¿Eliminar producto?')" class="text-red-600 font-semibold hover:underline">
                                     Eliminar
                                 </a>
                             </td>
@@ -502,7 +510,7 @@ $productos = $stmt->fetchAll();
 
         <!-- Botón crear -->
         <button id="abrirModalCrear"
-            class="inline-block mt-6 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+            class="inline-block mt-6 bg-green-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-green-700 transition">
             + Nuevo producto
         </button>
 

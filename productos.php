@@ -12,11 +12,11 @@ $genero = $_GET['genero'] ?? '';
 
 
 <!-- FILTROS -->
-<section class="py-10 px-6 md:px-20 bg-black">
-    <div class="w-full">
+<section class="py-10 px-6 md:px-20 bg-black relative z-[120] overflow-visible">
+    <div class="w-full relative overflow-visible">
 
-        <form method="GET" class="flex flex-col md:flex-row gap-4 w-full
-             bg-gray-900 p-6 rounded-2xl border border-gray-800">
+        <form method="GET" class="flex flex-col md:flex-row gap-4 w-full relative z-[130] overflow-visible
+             bg-gray-900 p-6 md:p-7 rounded-2xl border border-gray-800 shadow-2xl">
 
             <!-- Buscador -->
             <div class="flex-1">
@@ -27,7 +27,7 @@ $genero = $_GET['genero'] ?? '';
             </div>
 
             <!-- DROPDOWN CATEGORIA -->
-            <div class="relative w-full md:w-56">
+            <div class="relative w-full md:w-56 z-[140]">
 
                 <button type="button" id="dropdownBtn" class="w-full px-4 h-[52px] rounded-xl border border-gray-700
                                bg-black text-white flex justify-between items-center
@@ -40,7 +40,7 @@ $genero = $_GET['genero'] ?? '';
                     <span>▼</span>
                 </button>
 
-                <div id="dropdownMenu" class="hidden absolute mt-2 w-full bg-black border border-gray-700
+                <div id="dropdownMenu" class="hidden absolute left-0 top-full mt-2 w-full bg-black border border-gray-700
                             rounded-xl shadow-xl overflow-hidden z-50">
 
                     <div class="option px-4 py-3 cursor-pointer text-gray-300 hover:bg-gray-800 transition"
@@ -76,7 +76,7 @@ $genero = $_GET['genero'] ?? '';
 
 
             <!-- DROPDOWN GENERO -->
-            <div class="relative w-full md:w-56">
+            <div class="relative w-full md:w-56 z-[140]">
 
                 <button type="button" id="dropdownGeneroBtn" class="w-full px-4 h-[52px] rounded-xl border border-gray-700
                                bg-black text-white flex justify-between items-center
@@ -90,7 +90,7 @@ $genero = $_GET['genero'] ?? '';
                     <span>▼</span>
                 </button>
 
-                <div id="dropdownGeneroMenu" class="hidden absolute mt-2 w-full bg-black border border-gray-700
+                <div id="dropdownGeneroMenu" class="hidden absolute left-0 top-full mt-2 w-full bg-black border border-gray-700
                             rounded-xl shadow-xl overflow-hidden z-50">
 
                     <div class="optionGenero px-4 py-3 cursor-pointer text-gray-300 hover:bg-gray-800 transition"
@@ -147,7 +147,7 @@ $genero = $_GET['genero'] ?? '';
     </div>
 </section>
 
-<section class="px-6 md:px-20 py-12 bg-black ">
+<section class="px-6 md:px-20 py-12 bg-black">
     <div class="flex justify-between items-center mb-16">
     <h1 class="text-3xl md:text-4xl font-bold leading-tight pb-1
 bg-clip-text text-transparent 
@@ -157,7 +157,7 @@ drop-shadow-xl">
     </h1>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7">
 
         <?php
         // QUERY BASE// FILTROS DINÁMICOS
@@ -192,7 +192,7 @@ WHERE v.stock > 0
 
         while ($producto = $stmt->fetch(PDO::FETCH_ASSOC)):
             ?>
-            <div class="bg-gray-900 rounded-xl overflow-hidden hover:scale-105 transition">
+            <div class="bg-gray-900 rounded-xl overflow-hidden hover:scale-105 transition duration-300 border border-white/10">
 
                 <img src="uploads/<?php echo $producto['imagen']; ?>" class="w-full h-48 object-cover">
 
@@ -206,7 +206,7 @@ WHERE v.stock > 0
                     </p>
 
                     <a href="producto.php?id=<?php echo $producto['id']; ?>"
-                        class="mt-3 block bg-red-600 text-center py-2 rounded hover:bg-red-700 transition">
+                        class="mt-3 block bg-red-600 text-center py-2 rounded-lg font-semibold hover:bg-red-700 transition">
                         Ver producto
                     </a>
                 </div>

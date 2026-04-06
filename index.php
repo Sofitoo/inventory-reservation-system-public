@@ -62,22 +62,24 @@ $result = $pdo->query("
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/rgbbutton.css">
+    <script src="assets/js/ui-animations.js" defer></script>
 
     <!-- Favicon -->
     <link rel="icon" href="assets/img/palanca-de-mando.png" type="image/x-icon">
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 store-ui">
 
     <!-- Navbar -->
     <?php include("components/navbar.php"); ?>
 
     <!-- Buscador -->
-    <section class="bg-white py-6 px-4 shadow-sm">
-        <div class="max-w-6xl mx-auto">
+    <section class="bg-white py-8 px-4 shadow-sm border-b border-gray-800/40 relative z-[120] overflow-visible">
+        <div class="max-w-6xl mx-auto relative overflow-visible">
 
-            <form action="productos.php" method="GET" class="flex flex-col md:flex-row gap-3 items-stretch">
+            <form action="productos.php" method="GET" class="flex flex-col md:flex-row gap-3 items-stretch relative z-[130] overflow-visible">
 
                 <!-- Input -->
                 <div class="flex-1">
@@ -87,7 +89,7 @@ $result = $pdo->query("
                 </div>
 
                 <!-- Select estilizado -->
-                <div class="relative w-full md:w-56">
+                <div class="relative w-full md:w-56 z-[140]">
 
                     <!-- Botón -->
                     <button type="button" id="dropdownBtn" class="w-full px-4 h-[52px] rounded-xl border border-gray-700
@@ -100,7 +102,7 @@ $result = $pdo->query("
                     </button>
 
                     <!-- Opciones -->
-                    <div id="dropdownMenu" class="hidden absolute mt-2 w-full bg-black border border-gray-700
+                    <div id="dropdownMenu" class="hidden absolute left-0 top-full mt-2 w-full bg-black border border-gray-700
                 rounded-xl shadow-xl overflow-hidden z-50">
 
                         <div class="option px-4 py-3 cursor-pointer text-gray-300 hover:bg-gray-800 transition"
@@ -136,7 +138,7 @@ $result = $pdo->query("
 
                 <!-- Género -->
                 <!-- Dropdown Género estilizado -->
-<div class="relative w-full md:w-56">
+<div class="relative w-full md:w-56 z-[140]">
 
     <!-- Botón -->
     <button type="button" id="dropdownGeneroBtn" 
@@ -150,7 +152,7 @@ $result = $pdo->query("
     </button>
 
     <!-- Opciones -->
-    <div id="dropdownGeneroMenu" class="hidden absolute mt-2 w-full bg-black border border-gray-700
+    <div id="dropdownGeneroMenu" class="hidden absolute left-0 top-full mt-2 w-full bg-black border border-gray-700
                 rounded-xl shadow-xl overflow-hidden z-50">
 
         <div class="optionGenero px-4 py-3 cursor-pointer text-gray-300 hover:bg-gray-800 transition" data-value="">
@@ -205,7 +207,7 @@ $result = $pdo->query("
     <?php include("components/banner.php"); ?>
 
     <!-- Productos -->
-    <section class="py-12 px-4 bg-gray-100">
+    <section class="py-14 px-4 bg-gray-100">
         <div class="max-w-6xl mx-auto">
 
             <div class="flex justify-between items-center mb-6">
@@ -225,13 +227,13 @@ $result = $pdo->query("
                 <?php while ($producto = $result->fetch(PDO::FETCH_ASSOC)): ?>
 
                     <div
-                        class="min-w-[180px] md:min-w-[220px] bg-white rounded-xl shadow-md hover:shadow-xl transition cursor-pointer">
+                        class="min-w-[190px] md:min-w-[240px] bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 cursor-pointer border border-gray-700/40">
 
                         <img src="uploads/<?php echo $producto['imagen']; ?>"
                             class="w-full h-48 object-cover rounded-t-xl">
 
                         <div class="p-4">
-                            <h3 class="font-semibold text-sm">
+                            <h3 class="font-semibold text-sm md:text-base">
                                 <?php echo $producto['nombre']; ?>
                             </h3>
 
@@ -240,7 +242,7 @@ $result = $pdo->query("
                             </p>
 
                             <button
-                                class="mt-3 w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg text-sm transition">
+                                class="mt-3 w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg text-sm font-semibold transition">
                                 <a href="producto.php?id=<?php echo $producto['id']; ?>">
                                     Agregar al carrito
                             </button>

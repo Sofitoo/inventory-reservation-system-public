@@ -14,11 +14,13 @@ $mensaje = urlencode("Hola! Quiero confirmar mi compra. Orden #" . $nro . " - To
     <meta charset="UTF-8">
     <title>Gracias por tu compra</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/ui-animations.js" defer></script>
 </head>
 
-<body class="bg-black text-white flex items-center justify-center min-h-screen">
+<body class="bg-black text-white flex items-center justify-center min-h-screen store-ui">
 
-    <div class="text-center space-y-6">
+    <div class="text-center space-y-6 bg-gray-900/80 p-8 rounded-2xl border border-white/10 shadow-2xl">
 
         <!-- Loader -->
         <div id="loader" class="flex justify-center">

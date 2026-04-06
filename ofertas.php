@@ -20,7 +20,7 @@ include "back/conexion.php";
             </h1>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-7">
 
             <?php
 
@@ -39,7 +39,7 @@ include "back/conexion.php";
 
             while ($producto = $stmt->fetch(PDO::FETCH_ASSOC)):
                 ?>
-                <div class="bg-gray-900 rounded-xl overflow-hidden hover:scale-105 transition">
+                <div class="bg-gray-900 rounded-xl overflow-hidden hover:scale-105 transition duration-300 border border-white/10">
 
                     <img src="uploads/<?php echo $producto['imagen']; ?>" class="w-full h-48 object-cover">
 
@@ -53,7 +53,7 @@ include "back/conexion.php";
                         </p>
 
                         <a href="producto.php?id=<?php echo $producto['id']; ?>"
-                            class="mt-3 block bg-red-600 text-center py-2 rounded hover:bg-red-700 transition">
+                            class="mt-3 block bg-red-600 text-center py-2 rounded-lg font-semibold hover:bg-red-700 transition">
                             Ver producto
                         </a>
                     </div>

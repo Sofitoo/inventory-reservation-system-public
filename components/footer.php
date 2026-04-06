@@ -1,10 +1,10 @@
 <footer class="bg-black text-gray-300 mt-20 border-t border-gray-800">
 
-  <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-10 text-sm">
+  <div class="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-10 text-sm">
 
     <!-- Marca -->
     <div>
-      <h3 class="text-xl font-bold text-white mb-4">
+      <h3 class="text-xl font-bold text-white mb-4 tracking-wide">
         Level UP Store Game.
       </h3>
       <p class="text-gray-400 leading-relaxed">
